@@ -32,12 +32,12 @@ Clona el repositorio `git clone https://github.com/rubensantibanezacosta/my_weat
     ###### *Para obtener API KEYS*
     
     - `npm run apiKeys` para generar dos nuevos tokens en la base de datos, uno con scopes de administrador, y otro con scopes de usuario.
-    -  Copia y pega los token en tu archivo `.env`
+    -  Mas tarde necesitaras copiarlos y pegarlos para las peticiones en POSTMAN.
 
    ###### *Para levantar el servidor* 
     - Dos opciones:
-      - `npm run dev` para levantar el servidor en modo dev, con hot reloading.
-      - `npm run start` para levantar el sevidor en modo desarrollo
+      - `npm run dev` para levantar el servidor en modo desarrollo, con hot reloading.
+      - `npm run start` para levantar el sevidor en modo producción
 
 
 
