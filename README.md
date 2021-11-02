@@ -58,9 +58,9 @@ RUTAS a la API:
 
 `password: 1551,`
 
-`name: &Ruben&,`
+`name: Ruben,`
 
-`username: &test@test,`
+`username: test@test,`
 
 `isAdmin:false`
 
@@ -186,6 +186,7 @@ Authorization : Bearer token {{_sing-in token_}}
 * [Express js](https://expressjs.com/es/) - *Framework usado para el Backend*
 * [Visual Studio Code](https://code.visualstudio.com) - *Editor utilizado*
 * [MySQL](https://www.mysql.com/) - *Motor de bases de datos*
+* [Sequelize](https://sequelize.org/) - *ORM utilizado*
 
 
 ## Autores ✒️
