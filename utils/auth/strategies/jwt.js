@@ -13,10 +13,8 @@ passport.use(
     },
         async function (tokenPayload, cb) {
             const userService = new UserService();
-            console.log(tokenPayload);
             try {
-                const user =await userService.findOne( tokenPayload.username);
-                console.log(user);
+                const user = await userService.findOne(tokenPayload.username);
                 if (!user) {
                     return cb(boom.unauthorized(), false);
                 }

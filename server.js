@@ -6,6 +6,7 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const authApi = require("./routes/auth");
 const userRoutes = require("./routes/userRoutes");
+const cityRoutes = require("./routes/cityRoutes");
 const passport = require("passport");
  
 const app = express();
@@ -37,6 +38,7 @@ app.use(passport.initialize());
 
 authApi(app);
 userRoutes(app);
+cityRoutes(app);
 
 app.listen(port, () => {
   console.log('Server started on: ' + port);

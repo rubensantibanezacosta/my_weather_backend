@@ -1,6 +1,4 @@
 const express = require("express");
-const boom = require("@hapi/boom");
-const users = require("../controllers/userController.js");
 const UserController = require("../controllers/userController");
 const passport = require("passport");
 const scopesValidationHandler = require("../utils/middlewares/scopesValidationHandler");
