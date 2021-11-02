@@ -10,8 +10,6 @@ Clona el repositorio `git clone https://github.com/rubensantibanezacosta/my_weat
 
 ## Pre-requisitos 📋
 
-- Sistema Operativo **Windows** o **Linux**
-
 - **Node.js** y **NPM**  ***https://nodejs.org/es/***
 
 - **MySQL** o **MariaDB** ***https://www.mysql.com/downloads/***
