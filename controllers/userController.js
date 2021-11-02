@@ -7,7 +7,7 @@ class userController {
 
     // Create and Save a new user
     createUser = (req, res) => {
-            
+
         // Validate request
         if (!req.body.username) {
             res.status(400).json({
@@ -23,7 +23,7 @@ class userController {
             username: req.body.username,
             isAdmin: false
         };
-       
+
         // Save user in the database
         this.userService.createUser(user)
             .then(data => {
@@ -32,7 +32,7 @@ class userController {
             .catch(err => {
                 res.status(500).json({
                     message:
-                        err.message || "Some error occurred while creating the User."
+                        err + " Some error occurred while creating the User."
                 });
             });
     };
@@ -46,7 +46,7 @@ class userController {
             .catch(err => {
                 res.status(500).json({
                     message:
-                        err.message || "Some error occurred while retrieving users."
+                        err + " Some error occurred while retrieving users."
                 });
             });
     };
@@ -61,7 +61,8 @@ class userController {
             })
             .catch(err => {
                 res.status(500).json({
-                    message: "Error retrieving user with username=" + username
+                    message:
+                        err + " Error retrieving user with username=" + username
                 });
             });
     };
@@ -83,7 +84,8 @@ class userController {
             })
             .catch(err => {
                 res.status(500).json({
-                    message: "Error updating User with username=" + username
+                    message:
+                        err + " Error updating User with username=" + username
                 });
             });
     };
@@ -107,7 +109,8 @@ class userController {
             })
             .catch(err => {
                 res.status(500).json({
-                    message: "Could not delete User with username=" + username
+                    message:
+                        err + " Could not delete User with username=" + username
                 });
             });
 

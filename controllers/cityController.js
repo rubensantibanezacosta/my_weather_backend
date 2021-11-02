@@ -7,7 +7,7 @@ class CityController {
 
 
     createCity = (req, res) => {
-            
+
         // Validate request
         if (!req.body.username || !req.body.key) {
             res.status(400).json({
@@ -16,7 +16,7 @@ class CityController {
             return;
         }
 
-        
+
         const city = {
             username: req.body.username,
             key: req.body.key,
@@ -31,7 +31,7 @@ class CityController {
             .catch(err => {
                 res.status(500).json({
                     message:
-                        err.message || "Some error occurred while creating the City."
+                        err + " Some error occurred while creating the City."
                 });
             });
     };
@@ -45,7 +45,7 @@ class CityController {
             .catch(err => {
                 res.status(500).json({
                     message:
-                        err.message || "Some error occurred while retrieving cities."
+                        err + " Some error occurred while retrieving cities."
                 });
             });
     };
@@ -58,7 +58,7 @@ class CityController {
             .catch(err => {
                 res.status(500).json({
                     message:
-                        err.message || "Some error occurred while retrieving cities."
+                        err + " Some error occurred while retrieving cities."
                 });
             });
     };
@@ -74,7 +74,8 @@ class CityController {
             })
             .catch(err => {
                 res.status(500).json({
-                    message: "Error retrieving City with key=" + key
+                    message:
+                        err + " Error retrieving City with key=" + key
                 });
             });
     };
@@ -96,7 +97,8 @@ class CityController {
             })
             .catch(err => {
                 res.status(500).json({
-                    message: "Error updating city with key=" + key
+                    message:
+                        err + " Error updating city with key=" + key
                 });
             });
     };
@@ -122,7 +124,8 @@ class CityController {
             .catch(err => {
                 res.status(500).json({
 
-                    message: err + " Could not delete City with key=" + key
+                    message:
+                        err + " Could not delete City with key=" + key
                 });
             });
 
