@@ -1,6 +1,6 @@
 # API DE LOCALIZACIONES Y GESTION DE USUARIOS 
 
-Un API que provee una herramienta de gestion de localizaciones, y te permite gestionar cuentas de usuario con datos personalizados,
+Un API que provee una herramienta de gestion de localizaciones, y te permite gestionar cuentas de usuario,
 con el objetivo de servir de backend para explotar un API de datos climatologicos desde un frontend *UNDER CONSTRUCTION*.
 
 ## Comenzando 🚀
