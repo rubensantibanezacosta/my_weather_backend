@@ -1,6 +1,7 @@
-# API DE DATOS CLIMATOLOGICOS Y GESTION DE USUARIOS 
+# API DE LOCALIZACIONES Y GESTION DE USUARIOS 
 
-Un API que provee de datos climatologicos, y te permite gestionar cuentas de usuario con datos personalizados *UNDER CONSTRUCTION*.
+Un API que provee una herramienta de gestion de localizaciones, y te permite gestionar cuentas de usuario con datos personalizados,
+con el objetivo de servir de backend para explotar un API de datos climatologicos desde un frontend *UNDER CONSTRUCTION*.
 
 ## Comenzando 🚀
 
