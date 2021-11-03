@@ -15,13 +15,13 @@ class userController {
             });
             return;
         }
-
+        const image = require("../assets/images/avatar.bin");
         // Create an user
         const user = {
             password: req.body.password,
             name: req.body.name,
             username: req.body.username,
-            isAdmin: false
+            
         };
 
         // Save user in the database

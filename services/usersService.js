@@ -2,17 +2,22 @@ const db = require("../models");
 const Users = db.users;
 const Op = db.Sequelize.Op;
 const bcrypt = require("bcrypt");
-const users = require("../models/users");
+const imageToBase64 = require('image-to-base64');
+
 
 class UserService {
 
   async createUser(user) {
-
+    
+    const avatar=await imageToBase64(__dirname+"/../assets/images/avatar.jpeg");
+    
     const userToPersist = {
       password: (bcrypt.hashSync(user.password, 10)),
       name: user.name,
       username: user.username,
-      isAdmin: user.isAdmin
+      isAdmin: false,
+      image: avatar
+      
     };
 
     return Users.create(userToPersist);
@@ -33,7 +38,8 @@ class UserService {
       password: (bcrypt.hashSync(body.password, 10)),
       name: body.name,
       username: body.username,
-      isAdmin: body.isAdmin
+      isAdmin: body.isAdmin,
+      image: btoa(body.image)
     };
 
     return Users.update(userToPersist, {

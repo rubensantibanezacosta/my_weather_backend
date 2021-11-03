@@ -7,6 +7,7 @@ const bodyParser = require('body-parser');
 const authApi = require("./routes/auth");
 const userRoutes = require("./routes/userRoutes");
 const cityRoutes = require("./routes/cityRoutes");
+const weatherRoutes = require("./routes/weatherRoutes");
 const passport = require("passport");
  
 const app = express();
@@ -39,6 +40,7 @@ app.use(passport.initialize());
 authApi(app);
 userRoutes(app);
 cityRoutes(app);
+weatherRoutes(app);
 
 app.listen(port, () => {
   console.log('Server started on: ' + port);
