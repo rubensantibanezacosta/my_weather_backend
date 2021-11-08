@@ -1,6 +1,6 @@
 # API DE LOCALIZACIONES, DATOS METEREOLÓGICOS Y GESTION DE USUARIOS 
 
-Un API que provee una herramienta de gestion de localizaciones, datos y previsiones meterológicas de las mismas haciendo uso de un del API gratuito ofrecido por AccuWeather, y que permite gestionar cuentas de usuario con OAUTH 1.0.
+Un API que provee una herramienta de gestion de localizaciones, datos y previsiones meterológicas de las mismas haciendo uso del API gratuito ofrecido por AccuWeather, y que permite gestionar cuentas de usuario con OAUTH 1.0.
 con el objetivo de servir de Backend para una aplicación web de datos climatologicos de manera personalizada. *UNDER CONSTRUCTION*.
 
 ## Comenzando 🚀
