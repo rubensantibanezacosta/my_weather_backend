@@ -4,8 +4,8 @@ module.exports = (sequelize, Sequelize) => {
             type: Sequelize.INTEGER,
             primaryKey: true,
             references: {
-                model: 'users', // 'persons' refers to table name
-                key: 'username', // 'id' refers to column name in persons table
+                model: 'users',
+                key: 'username',
             }
         },
         key: {

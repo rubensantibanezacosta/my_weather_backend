@@ -11,7 +11,7 @@ function weatherRoutes(app) {
     app.use("/api/weather", router)
     const weatherController = new AccuWeatherController();
 
-    router.get("/locations/:key",
+    router.get("/locations/:searchString",
         passport.authenticate("jwt", { session: false }),
         scopesValidationHandler(['read:locations']),
         weatherController.getSearchAutocomplete);
@@ -20,6 +20,11 @@ function weatherRoutes(app) {
         passport.authenticate("jwt", { session: false }),
         scopesValidationHandler(['read:weather']),
         weatherController.getWeather);
+
+    router.get("/forecast/:username",
+        passport.authenticate("jwt", { session: false }),
+        scopesValidationHandler(['read:weather']),
+        weatherController.getAllWeatherByUser);
 
 
 

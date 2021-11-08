@@ -4,6 +4,8 @@ const boom = require("@hapi/boom");
 const jwt = require("jsonwebtoken");
 const ApiKeysService = require("../services/apiKeysService");
 const UserService = require("../services/usersService");
+const emailValidationHandler = require("../utils/middlewares/emailValidationHandler");
+const moment = require("moment");
 const env = process.env.NODE_ENV || 'development';
 const config = require(__dirname + './../config/config')[env];
 
@@ -18,13 +20,9 @@ function authApi(app) {
     const apiKeysService = new ApiKeysService();
     const userService = new UserService();
 
-    router.post("/sign-in", async function (req, res, next) {
-        const { apiKeyToken, rememberMe } = req.body;
-        console.log(rememberMe);
-
-        if (!apiKeyToken) {
-            next(boom.unauthorized("apiKeyToken is required"));
-        }
+    router.post("/sign-in", emailValidationHandler(), async function (req, res, next) {
+        const rememberMe = req.body.rememberMe;
+        const apiKeyToken = req.body.apiKeyToken || config.publicApiKeyToken;
 
         passport.authenticate("basic", function (error, user) {
 
@@ -43,16 +41,18 @@ function authApi(app) {
                     }
 
                     const { username, name } = user[0];
-
+                    const expireTime=rememberMe?43800:120;
+                    const expireDate=moment.utc().add(expireTime,"minutes");
                     
                     const payload = {
                         username: username,
                         name,
-                        scopes: JSON.stringify(apiKey[0].scopes.split(","))
+                        scopes: JSON.stringify(apiKey[0].scopes.split(",")),
+                        tokenExpiresIn: expireDate
                     }
-
+                    
                     const token = jwt.sign(payload, config.jwtSecret, {
-                        expiresIn: rememberMe?'43800m':'120m'
+                        expiresIn: expireTime+"m"
                     });
 
 
@@ -64,7 +64,7 @@ function authApi(app) {
         })(req, res, next);
     });
 
-    router.post("/sign-up", async function(req, res, next){
+    router.post("/sign-up", emailValidationHandler(), async function(req, res, next){
         const user = req.body;
 
         try {

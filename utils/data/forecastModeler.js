@@ -1,11 +1,15 @@
+const moment = require("moment");
+
 class ForecastModeler {
 
     forecastModel(forecast) {
+        moment.locale("es");
         const forecastModeled = [];
         forecast.DailyForecasts.forEach(element => {
+           
             const day = {
-                date: element.Date,
-                temperature: element.Temperature.Minimum.Value + "º - " + element.Temperature.Maximun.Value + "º",
+                date:  moment(new Date(element.Date.split("T07")[0])).format("ddd"),
+                temperature: element.Temperature.Minimum.Value + "º - " + element.Temperature.Maximum.Value + "º",
                 text: element.Day.IconPhrase,
                 icon: element.Day.Icon,
                 mobileLink: element.MobileLink,

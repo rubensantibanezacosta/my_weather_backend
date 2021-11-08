@@ -13,9 +13,6 @@ module.exports = (sequelize, Sequelize) => {
     isAdmin: {
       type: Sequelize.BOOLEAN
     },
-    image: {
-      type: Sequelize.STRING
-    }
   },
     { // Condiciones del objeto con relación a la tabla de los datos
       tableName: 'users',

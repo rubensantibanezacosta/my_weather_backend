@@ -16,7 +16,7 @@ class UserService {
       name: user.name,
       username: user.username,
       isAdmin: false,
-      image: avatar
+      //image: avatar
       
     };
 

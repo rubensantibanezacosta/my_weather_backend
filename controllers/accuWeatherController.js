@@ -7,10 +7,11 @@ class AccuWeatherController {
 
     getSearchAutocomplete = (req, res) => {
         const searchString = req.params.searchString;
-        
+        console.log(req.params);
+
         this.accuWeatherService.cityAutcomplete(searchString)
             .then(data => {
-                res.status(201).json(data);
+                res.status(200).json(data);
             })
             .catch(err => {
                 res.status(500).json({
@@ -22,8 +23,23 @@ class AccuWeatherController {
 
     getWeather = (req, res) => {
         const key = req.params.key;
-       
+
         this.accuWeatherService.weatherForSend(key)
+            .then(data => {
+                res.status(200).json(data);
+            })
+            .catch(err => {
+                res.status(500).json({
+                    message:
+                        err + " Some error occurred while retrieving weather."
+                });
+            });
+    };
+
+    getAllWeatherByUser = (req, res) => {
+        const key = req.params.username;
+
+        this.accuWeatherService.weatherByUserCities(username)
             .then(data => {
                 res.status(200).json(data);
             })

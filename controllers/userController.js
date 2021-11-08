@@ -9,19 +9,19 @@ class userController {
     createUser = (req, res) => {
 
         // Validate request
-        if (!req.body.username) {
+        if (!req.body.username || req.body.password || req.body.name) {
             res.status(400).json({
                 message: "Content cannot be empty!"
             });
             return;
         }
-        const image = require("../assets/images/avatar.bin");
+       
         // Create an user
         const user = {
             password: req.body.password,
             name: req.body.name,
             username: req.body.username,
-            
+
         };
 
         // Save user in the database
